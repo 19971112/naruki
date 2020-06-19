@@ -1,50 +1,22 @@
-# -*- coding: utf-8 -*-
+import sys
 
 f1 = open ("countrypart.txt","r")
-f2 = open ("abbreviation.txt","r")
+f2 = open ("abbreviation.txt","r").read()
 
-#Set dict
-country_list=[]
-abbreviation_list=[]
-seq_abb_list=[]
+# 空の辞書の作成
+dic = {}
 
-for line_1 in f1:
+# 読み込んだリストのファイルを一行づづ辞書に登録
+line = f1.readline()
+while line:
+    key = line[:line.find(",")]
+    value = line[line.find(","):].lstrip(",").strip("\n")
+    dic[key] = value
+    line = f1.readline()
+f1.close()
 
-    line1 = line_1.rstrip()
+#　ファイルの読み込み
+for k, v in dic.items():
+    mystr = f2.replace(k, v)
 
-    con_abb = line1.split(",")
-
-    #print(con_abb[0])
-
-    country_list.append(con_abb[1])
-
-    abbreviation_list.append(con_abb[0])
-
-#print(country_list)
-
-#print(abbreviation_list)
-
- 
-for line_2 in f2:
-
-	#print(line_2)
-
-	line2 = line_2.rstrip()
-
-	#print(line2)
-
-	seq_abb_list.append(line2)
-
-#print(seq_abb_list)
-
-for coun, abb in zip(country_list, abbreviation_list):
-
-	#print(coun)
-
-	#print(abb)
-
-	if abb == seq_abb_list:
-
-		print(coun)
-
-
+print(mystr)
