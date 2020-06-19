@@ -11,5 +11,6 @@
 ```
 # brew install git
 git clone https://github.com/19971112/naruki.git
+cd naruki
 python county.py
 ```
