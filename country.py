@@ -1,12 +1,12 @@
 import sys
 
 f1 = open ("countrypart.txt","r")
-f2 = open ("abbreviation.txt","r").read()
+f2 = open ("abbreviation.txt","r")
 
-# 空の辞書の作成
 dic = {}
 
 # 読み込んだリストのファイルを一行づづ辞書に登録
+
 line = f1.readline()
 while line:
     key = line[:line.find(",")]
@@ -16,7 +16,8 @@ while line:
 f1.close()
 
 #　ファイルの読み込み
+mystr = f2.read()
 for k, v in dic.items():
-    mystr = f2.replace(k, v)
+    mystr = mystr.replace(k, v)
 
 print(mystr)
