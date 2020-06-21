@@ -1,4 +1,4 @@
-import sys
+#import sys
 
 f1 = open ("countrypart.txt","r")
 f2 = open ("abbreviation.txt","r")
